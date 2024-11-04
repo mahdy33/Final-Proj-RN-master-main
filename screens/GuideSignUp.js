@@ -498,20 +498,21 @@ export default function GuideSignUp() {
                 </View>
 
                 {/* Country Dropdown Picker */}
-                <View style={styles.inputContainer}>
-                    <DropDownPicker
-                        open={open}
-                        value={Country}
-                        items={countries}
-                        setOpen={setOpen}
-                        setValue={setCountry}
-                        setItems={setCountries}
-                        placeholder="Select Country"
-                        containerStyle={{ width: '100%' }}
-                        style={styles.dropdown}
-                        dropDownContainerStyle={{ borderColor: '#ccc' }}
-                    />
-                </View>
+                <DropDownPicker
+                    open={open}
+                    value={Country}
+                    items={countries}
+                    setOpen={setOpen}
+                    setValue={setCountry}
+                    setItems={setCountries}
+                    placeholder="Select Country"
+                    searchable={true}
+                    searchPlaceholder="Type a country name..."
+                    containerStyle={styles.dropdownContainer}
+                    style={styles.dropdown}
+                    dropDownContainerStyle={styles.dropdownContainerStyle}
+                    listMode="MODAL"
+                />
 
                 {/* Date of Birth Input */}
                 <TouchableOpacity style={styles.inputContainer} onPress={showDatePicker}>
@@ -701,10 +702,16 @@ const styles = StyleSheet.create({
         color: '#333',
         marginRight: 10,
     },
-    dropdown: {
-        borderColor: '#ccc',
-        backgroundColor: '#fff',
+    dropdownContainer: {
         width: '95%',
+        marginBottom: 10,
+    },
+    dropdown: {
+        backgroundColor: '#fff',
+        borderColor: '#ccc',
+    },
+    dropdownContainerStyle: {
+        borderColor: '#ccc',
     },
     registerButton: {
         width: '60%',
